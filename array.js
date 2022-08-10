@@ -34,6 +34,14 @@ var uniqueArray = [... new Set(array)]
 //Using Filters
 var unique = array.filter((x,i,a) => a.indexOf(x) === i) 
 
+//using reduce
+const newArray = arr.reduce((previous, actual) => {
+if (!previous.includes(actual)) {
+previous.push(actual)
+}
+return previous
+}, [])
+
 //Without Inbuilt
 function removeDuplicates(array){
     var newArray = [];
@@ -90,6 +98,27 @@ var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
       return obj;    
   };
 mostFreq(arr1);
+
+//print sum and product of array
+
+var sum = arr.reduce((a, b) => a + b);
+
+var prod = arr.reduce((a, b) => a * b)
+
+//Get Index of specific element of array or binary search
+function binarySearch(arr, value) {
+  return arr.indexOf(value)
+}
+
+//  Without built in
+function search(array,val){
+  for(var i=0;i<=array.length;i++){
+    if(array[i]==val){
+      return i;
+    }
+  }
+}
+
 
 
 
