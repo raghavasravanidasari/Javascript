@@ -74,6 +74,23 @@ array.sort = (a,b) => { return a.value-b.value}
   return arr1;
 }
 
+//Most frequent item in array or print each occurence ofarray items
+
+var arr1=[3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3]; 
+
+  mostFreq = (array) => {
+      let obj = {}, most = { occurence: '', frequency: 0 };
+      for(const v of array){
+          obj[v] ? obj[v]++ : obj[v]=1;
+          if(obj[v] > most.frequency) {
+              most.occurence = v;
+              most.frequency = obj[v];
+          }
+      }
+      return obj;    
+  };
+mostFreq(arr1);
+
 
 
 
