@@ -119,6 +119,105 @@ function search(array,val){
   }
 }
 
+//Print all combinations
+function all(str) {
+    let result = [];
+    for (const e of str) {
+        let temp = [e];
+        for (const i in result) 
+        temp.push("" + result[i] + e);
+        result = result.concat(temp);
+    }
+    return result;
+}
+console.log(all("dog"))
+
+function capitalize(str) {
+    return str.split(' ').map(e => e.charAt(0).toUpperCase() + e.slice(1)).join(' ')
+}
+const longestString = str => {
+    const arr = str.split(' ');
+    return arr.reduce((acc, val) =>
+        acc.length > val.length ? acc : val);
+}
+console.log(longestString('Web Development Tutorial'));
+
+function vowel_count(str1) {
+    var vowel_list = 'aeiouAEIOU';
+    var vcount = 0;
+
+    for (var x = 0; x < str1.length; x++) {
+        if (vowel_list.indexOf(str1[x]) !== -1) {
+            vcount += 1;
+        }
+
+    }
+    return vcount;
+}
+console.log(vowel_count("The quick brown fox"));
+
+function isPrime(number) {
+    if (number == 0 || number == 1) return false;
+    let root = Math.floor(Math.sqrt(number));
+    for (let i = 2; i <= root; i++) {
+        if (number % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+console.log(isPrime(11)); //true
+console.log(isPrime(36)); //false
+
+function Second_Greatest_Lowest(arr) {
+    if (arr.length == 1) {
+        return arr;
+    };
+    arr.sort((a, b) => a - b);
+    if (arr.length == 2) {
+        return arr;
+    }
+    return [arr[1], arr[arr.length - 2]];
+}
+console.log(Second_Greatest_Lowest([1, 2, 3, 4, 5])); // [ 2, 4 ]
+
+function amountTocoins(amount, coins) {
+    if (amount === 0) {
+        return [];
+    }
+    else {
+        if (amount >= coins[0]) {
+            left = (amount - coins[0]);
+            return [coins[0]].concat(amountTocoins(left, coins));
+        }
+        else {
+            coins.shift();
+            return amountTocoins(amount, coins);
+        }
+    }
+}
+console.log(amountTocoins(46, [25, 10, 5, 2, 1]));
+function abc() {
+    console.log(arguments.callee.name);
+}
+
+abc();
+
+const longestPalindrome = (str) => {
+    let result = "";
+
+    for (let i = 0; i < str.length; i++) {
+        for (let j = i + 2; j < str.length; j++) {
+            const tempStr = str.substring(i, j);
+            const revTempStr = [...tempStr].reverse().join("");
+
+            if (tempStr === revTempStr && tempStr.length > result.length) result = tempStr;
+        }
+    }
+
+    return result;
+};
+
 
 
 
